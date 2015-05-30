@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitter/ViewController.swift"
+            timestampString = "453857360.274344"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "didReceiveMemoryWarning()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitter/TwitterClient.swift"
+            timestampString = "454231869.94166"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "retweetWithParams(_:completion:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "twitter.TwitterClient.retweetWithParams (twitter.TwitterClient)(Swift.Optional&lt;ObjectiveC.NSDictionary&gt;, completion : (tweets : Swift.Optional&lt;Swift.Array&lt;twitter.Tweet&gt;&gt;, error : Swift.Optional&lt;ObjectiveC.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "twitter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karen/Documents/Projects/codepath/week3_twitter/Twitter/twitter/twitter/TwitterClient.swift"
+                  timestampString = "454231700.69916"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "368">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "twitter.TwitterClient.(retweetWithParams (twitter.TwitterClient) -&gt; (Swift.Optional&lt;ObjectiveC.NSDictionary&gt;, completion : (tweets : Swift.Optional&lt;Swift.Array&lt;twitter.Tweet&gt;&gt;, error : Swift.Optional&lt;ObjectiveC.NSError&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "twitter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karen/Documents/Projects/codepath/week3_twitter/Twitter/twitter/twitter/TwitterClient.swift"
+                  timestampString = "454231700.704085"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
