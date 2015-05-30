@@ -10,14 +10,14 @@
 	<string>twitter</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>787CE46155768FC8BD6BF48E7A015C087AF2FCD4</key>
+		<key>466148BD98806C9BF2412DAD632ED4257CC7DB4D</key>
 		<string>https://github.com/skykat/codepath-twitter.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>twitter.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>787CE46155768FC8BD6BF48E7A015C087AF2FCD4</key>
+		<key>466148BD98806C9BF2412DAD632ED4257CC7DB4D</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>787CE46155768FC8BD6BF48E7A015C087AF2FCD4</string>
+	<string>466148BD98806C9BF2412DAD632ED4257CC7DB4D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>787CE46155768FC8BD6BF48E7A015C087AF2FCD4</string>
+			<string>466148BD98806C9BF2412DAD632ED4257CC7DB4D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>twitter</string>
 		</dict>
