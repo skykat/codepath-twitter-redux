@@ -10,9 +10,33 @@ import UIKit
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var headerImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var tagLineLabel: UILabel!
+    
+    @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak var followersLabel: UILabel!
+    
+    @IBOutlet weak var numberTweetsLabel: UILabel!
+
+    var tweet: Tweet!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        nameLabel.text = User.currentUser?.name
+        userNameLabel.text = User.currentUser?.screenname
+        tagLineLabel.text = User.currentUser?.tagline
+        profileImageView.setImageWithURL(User.currentUser?.profileImageUrl)
+        headerImageView.setImageWithURL(User.currentUser?.profileBannerUrl)
+        followingLabel.text = "following \(User.currentUser?.numberFollowing!)"
+        followersLabel.text = "followers \(User.currentUser?.numberOfFollowers!)"
+        
+        
         // Do any additional setup after loading the view.
     }
 

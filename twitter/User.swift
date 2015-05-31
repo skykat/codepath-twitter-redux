@@ -19,6 +19,9 @@ class User: NSObject {
     var screenname: String?
     var profileImageUrl: NSURL?
     var tagline: String?
+    var profileBannerUrl: NSURL?
+    var numberOfFollowers: NSNumber?
+    var numberFollowing: NSNumber?
     var dictionary: NSDictionary
     
     // create dictionary and deserialize them into each one
@@ -35,6 +38,32 @@ class User: NSObject {
             profileImageUrl = nil
         }
         tagline = dictionary["description"] as? String
+        let bannerURLString = dictionary["profile_banner_url"] as? String
+        if bannerURLString != nil {
+            profileBannerUrl =  NSURL(string: bannerURLString!)!
+        } else {
+            profileBannerUrl = nil
+        }
+    
+        
+        numberOfFollowers = dictionary["followers_count"] as? NSNumber
+        numberFollowing = dictionary["friends_count"] as? NSNumber
+        
+//        "favourites_count" = 8;
+//        "follow_request_sent" = 0;
+//        "followers_count" = 61;
+//        following = 0;
+//        "friends_count" = 174;
+//        "geo_enabled" = 0;
+//        id = 66938695;
+//        "id_str" = 66938695;
+//        "is_translation_enabled" = 0;
+//        "is_translator" = 0;
+//        lang = en;
+//        "listed_count" = 9;
+//        location = "San Francisco";
+        
+        //println(" user details: \(dictionary)")
     }
     
     func logout(){
