@@ -35,6 +35,7 @@ class AccountViewController: UIViewController {
         headerImageView.setImageWithURL(User.currentUser?.profileBannerUrl)
         followingLabel.text = "following \(User.currentUser?.numberFollowing!)"
         followersLabel.text = "followers \(User.currentUser?.numberOfFollowers!)"
+        numberTweetsLabel.text = "tweets \(User.currentUser?.numberOfTweets!)"
         
         
         // Do any additional setup after loading the view.

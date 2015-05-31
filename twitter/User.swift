@@ -22,6 +22,7 @@ class User: NSObject {
     var profileBannerUrl: NSURL?
     var numberOfFollowers: NSNumber?
     var numberFollowing: NSNumber?
+    var numberOfTweets: NSNumber?
     var dictionary: NSDictionary
     
     // create dictionary and deserialize them into each one
@@ -48,6 +49,7 @@ class User: NSObject {
         
         numberOfFollowers = dictionary["followers_count"] as? NSNumber
         numberFollowing = dictionary["friends_count"] as? NSNumber
+        numberOfTweets = dictionary["statuses_count"] as? NSNumber
         
 //        "favourites_count" = 8;
 //        "follow_request_sent" = 0;
@@ -63,7 +65,7 @@ class User: NSObject {
 //        "listed_count" = 9;
 //        location = "San Francisco";
         
-        //println(" user details: \(dictionary)")
+        println(" user details: \(dictionary)")
     }
     
     func logout(){

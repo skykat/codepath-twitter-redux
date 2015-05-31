@@ -10,10 +10,16 @@ import UIKit
 
 class TwitterMentionsViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        TwitterClient.sharedInstance.mentionsTimelineWithParams(nil, completion: {(tweets, error) -> () in
+            //self.tweets = tweets
+            //self.tableView.reloadData()
+            // tweet.favorite will do a post
+        })
     }
 
     override func didReceiveMemoryWarning() {

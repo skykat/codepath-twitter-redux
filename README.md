@@ -20,8 +20,8 @@ Time spent: `<12>`
 
 - [x] Hamburger menu - Dragging anywhere in the view should reveal the menu.
 - [x] Hamburger menu - The menu should include links to your profile, the home timeline, and the mentions view.
-- [ ] Hamburger menu - The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
-- [ ] Profile page - Contains the user header view
-- [ ] Profile page - Contains a section with the users basic stats: # tweets, # following, # followers
+- [x] Hamburger menu - The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
+- [x] Profile page - Contains the user header view
+- [x] Profile page - Contains a section with the users basic stats: # tweets, # following, # followers
 - [ ] Home Timeline - tapping on a user image should bring up that user's profile page
 
