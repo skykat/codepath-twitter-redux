@@ -24,9 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             println("Current user detected \(User.currentUser?.name)")
 
 
-            var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as? UIViewController
-            let navigationController = UINavigationController(rootViewController: vc!)
-            window?.rootViewController = navigationController//vc
+            //var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as? UIViewController
+
+            let containerViewController = ContainerViewController()
+            window!.rootViewController = containerViewController
+            window!.makeKeyAndVisible()
+            //let navigationController = UINavigationController(rootViewController: vc!)
+//            let navigationController = UINavigationController(rootViewController: containerViewController)
+//            window?.rootViewController = navigationController//vc
+
         }
         
         return true

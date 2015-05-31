@@ -417,6 +417,69 @@
             </objects>
             <point key="canvasLocation" x="-78" y="476"/>
         </scene>
+        <!--Menu Panel View Controller-->
+        <scene sceneID="fdN-er-umL">
+            <objects>
+                <viewController storyboardIdentifier="MenuPanelViewController" id="0GO-Zp-GIe" customClass="MenuPanelViewController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="blI-O7-e7R"/>
+                        <viewControllerLayoutGuide type="bottom" id="4AD-t5-XVk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7M6-Et-ne9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jnE-cw-T9b">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="135" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Nlm-9u-VYz">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="vR1-vw-G0R" customClass="MenuCell" customModule="twitter" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vR1-vw-G0R" id="LA7-Cj-lH1">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2o-5L-RP7">
+                                                            <rect key="frame" x="48" y="56" width="217" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="titleLabel" destination="y2o-5L-RP7" id="M2k-gE-rQS"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Nlm-9u-VYz" secondAttribute="bottom" id="beQ-oC-Qqz"/>
+                                    <constraint firstItem="Nlm-9u-VYz" firstAttribute="leading" secondItem="jnE-cw-T9b" secondAttribute="leading" id="syN-wz-ADc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nlm-9u-VYz" secondAttribute="trailing" id="tuE-gF-3Or"/>
+                                    <constraint firstItem="Nlm-9u-VYz" firstAttribute="top" secondItem="jnE-cw-T9b" secondAttribute="top" id="vem-vb-wFw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jnE-cw-T9b" secondAttribute="trailing" id="3t0-bY-KQO"/>
+                            <constraint firstItem="jnE-cw-T9b" firstAttribute="leading" secondItem="7M6-Et-ne9" secondAttribute="leading" id="98V-O4-OTv"/>
+                            <constraint firstItem="jnE-cw-T9b" firstAttribute="top" secondItem="7M6-Et-ne9" secondAttribute="top" id="ZV7-Sw-AAq"/>
+                            <constraint firstItem="4AD-t5-XVk" firstAttribute="top" secondItem="jnE-cw-T9b" secondAttribute="bottom" id="beL-we-hpG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Nlm-9u-VYz" id="zP2-zK-CYU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cg9-vo-3eY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1536" y="-246"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="mvY-R3-GMK">
             <objects>
