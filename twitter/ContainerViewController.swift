@@ -14,8 +14,21 @@ enum SlideOutState {
 }
 
 
+enum MenuItem: Int {
+    case Profile
+    case Timeline
+    case Menions
+    
+    func viewController() -> UIViewController {
+        switch (self) {
+        case Profile: return UIStoryboard.accountViewController()!
+        case Timeline: return UIStoryboard.centerViewController()!
+        case Menions: return UIStoryboard.mentionsViewController()!
+        }
+    }
+}
 
-class ContainerViewController: UIViewController {
+class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     
     var centerNavigationController: UINavigationController!
     var centerViewController: TweetsViewController!
@@ -27,7 +40,7 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
 
         centerViewController = UIStoryboard.centerViewController()
-        centerViewController.delegate = self
+      //  centerViewController.delegate = self
         // wrap the centerViewController in a navigation controller, so we can push views to it
         // and display bar button items in the navigation bar
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
@@ -62,8 +75,78 @@ class ContainerViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    func toggleLeftPanel() {
+        let notAlreadyExpanded = (currentState != .LeftPanelExpanded)
+        
+        if notAlreadyExpanded {
+            addLeftPanelViewController()
+        }
+        
+        animateLeftPanel(shouldExpand: notAlreadyExpanded)
+        
+    }
+    
+    func collapseSidePanels() {
+        switch (currentState) {
+        case .LeftPanelExpanded:
+            toggleLeftPanel()
+        default:
+            break
+        }
+    }
+    
+    func addLeftPanelViewController() {
+        if (leftViewController == nil) {
+            leftViewController = UIStoryboard.leftViewController()
+             leftViewController!.menuItems = Menu.items()
+            
+            addChildSidePanelController(leftViewController!)
+        }
+    }
+    
+    func animateLeftPanel(#shouldExpand: Bool) {
+        if (shouldExpand) {
+            currentState = .LeftPanelExpanded
+            
+            animateCenterPanelXPosition(targetPosition: CGRectGetWidth(centerNavigationController.view.frame) - centerPanelExpandedOffset)
+        } else {
+            animateCenterPanelXPosition(targetPosition: 0) { finished in
+                self.currentState = .BothCollapsed
+                
+                self.leftViewController!.view.removeFromSuperview()
+                self.leftViewController = nil;
+            }
+        }
+    }
+    
+    func animateCenterPanelXPosition(#targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
+            self.centerNavigationController.view.frame.origin.x = targetPosition
+            }, completion: completion)
+    }
+    
+    
+    func addChildSidePanelController(sidePanelController: MenuPanelViewController) {
+        //        view.insertSubview(sidePanelController.view, atIndex: 0)
+        //
+        //        addChildViewController(sidePanelController)
+        //        sidePanelController.didMoveToParentViewController(self)
+        // sidePanelController.delegate = centerViewController
+        sidePanelController.delegate = self
+        
+        view.insertSubview(sidePanelController.view, atIndex: 0)
+        
+        addChildViewController(sidePanelController)
+        sidePanelController.didMoveToParentViewController(self)
+    }
 
 }
+
+
+
 extension ContainerViewController: UIGestureRecognizerDelegate {
     // MARK: Gesture recognizer
     
@@ -94,7 +177,14 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
     }
     
 }
-
+extension ContainerViewController: MenuPanelViewControllerDelegate {
+    func itemSelected(item: MenuItem) {
+        let vc = item.viewController()
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .Plain, target: self, action: "toggleLeftPanel")
+        self.centerNavigationController.viewControllers = [vc]
+        self.collapseSidePanels()
+    }
+}
 
 private extension UIStoryboard {
   class func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
@@ -107,74 +197,24 @@ private extension UIStoryboard {
   class func centerViewController() -> TweetsViewController? {
     return mainStoryboard().instantiateViewControllerWithIdentifier("TweetsViewController") as? TweetsViewController
   }
+    
+    
+    class func accountViewController() -> AccountViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("AccountViewController") as? AccountViewController
+    }
+    
+    class func mentionsViewController() -> TwitterMentionsViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("TwitterMentionsViewController") as? TwitterMentionsViewController
+    }
   
 }
 
 
-extension ContainerViewController: TweetsViewControllerDelegate {
-    
-    func toggleLeftPanel() {
-        let notAlreadyExpanded = (currentState != .LeftPanelExpanded)
-        
-        if notAlreadyExpanded {
-            addLeftPanelViewController()
-        }
-        
-        animateLeftPanel(shouldExpand: notAlreadyExpanded)
-        
-    }
-    
-    func collapseSidePanels() {
-        switch (currentState) {
-        case .LeftPanelExpanded:
-            toggleLeftPanel()
-        default:
-            break
-        }
-    }
-    
-    func addLeftPanelViewController() {
-        if (leftViewController == nil) {
-            leftViewController = UIStoryboard.leftViewController()
-            leftViewController!.menuItems = MenuItem.allMenuItems()
-            
-            addChildSidePanelController(leftViewController!)
-        }
-    }
-    
-    func animateLeftPanel(#shouldExpand: Bool) {
-        if (shouldExpand) {
-            currentState = .LeftPanelExpanded
-            
-            animateCenterPanelXPosition(targetPosition: CGRectGetWidth(centerNavigationController.view.frame) - centerPanelExpandedOffset)
-        } else {
-            animateCenterPanelXPosition(targetPosition: 0) { finished in
-                self.currentState = .BothCollapsed
-                
-                self.leftViewController!.view.removeFromSuperview()
-                self.leftViewController = nil;
-            }
-        }
-    }
-    
-    func animateCenterPanelXPosition(#targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
-            self.centerNavigationController.view.frame.origin.x = targetPosition
-            }, completion: completion)
-    }
-    
 
-    func addChildSidePanelController(sidePanelController: MenuPanelViewController) {
-        //        view.insertSubview(sidePanelController.view, atIndex: 0)
-        //
-        //        addChildViewController(sidePanelController)
-        //        sidePanelController.didMoveToParentViewController(self)
-        sidePanelController.delegate = centerViewController
-        
-        view.insertSubview(sidePanelController.view, atIndex: 0)
-        
-        addChildViewController(sidePanelController)
-        sidePanelController.didMoveToParentViewController(self)
-    }
-}
+
+
+//extension ContainerViewController: TweetsViewControllerDelegate {
+//    
+//    
+//}
 

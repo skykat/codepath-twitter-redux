@@ -8,9 +8,9 @@
 
 import UIKit
 
-@objc
+
 protocol MenuPanelViewControllerDelegate {
-    func menuItemSelected(menuItem: MenuItem)
+    func itemSelected(menuItem: MenuItem)
 }
 
 class MenuPanelViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -18,7 +18,7 @@ class MenuPanelViewController: UIViewController, UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableView: UITableView!
     var delegate: MenuPanelViewControllerDelegate?
-    var menuItems: Array<MenuItem>!
+    var menuItems: Array<Menu>!
     
 
     override func viewDidLoad() {
@@ -40,19 +40,23 @@ class MenuPanelViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuItems.count
+        return 3
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell", forIndexPath: indexPath) as! MenuCell
+        cell.populateMenu(menuItems[indexPath.row])
 //        let cell = tableView.dequeueReusableCellWithIdentifier(TableView.CellIdentifiers.MenuCell, forIndexPath: indexPath) as? MenuCell
-        cell.titleLabel.text = menuItems[indexPath.row].title
-        println("title: \(menuItems[indexPath.row].title)")
+      //  cell.titleLabel.text = menuItems[indexPath.row].title
+     //   println("title: \(menuItems[indexPath.row].title)")
         return cell
     }
 
     
-
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+       // let selectedAnimal = animals[indexPath.row]
+        delegate?.itemSelected(MenuItem(rawValue: indexPath.row)!)
+    }
 
     /*
     // MARK: - Navigation

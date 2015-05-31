@@ -7,26 +7,26 @@
 //
 
 import UIKit
-
-@objc
-protocol TweetsViewControllerDelegate {
-    optional func toggleLeftPanel()
-    optional func toggleRightPanel()
-    optional func collapseSidePanels()
-}
-
-extension TweetsViewController: MenuPanelViewControllerDelegate {
-    func menuItemSelected(menuItem: MenuItem) {
-//        imageView.image = menuItem.image
- //       titleLabel.text = menuItem.title
-
-        
-        delegate?.collapseSidePanels?()
-    }
-}
+//
+//@objc
+//protocol TweetsViewControllerDelegate {
+//    optional func toggleLeftPanel()
+//    optional func toggleRightPanel()
+//    optional func collapseSidePanels()
+//}
+//
+//extension TweetsViewController: MenuPanelViewControllerDelegate {
+//    func menuItemSelected(menuItem: MenuItem) {
+////        imageView.image = menuItem.image
+// //       titleLabel.text = menuItem.title
+//
+//        
+//        delegate?.collapseSidePanels?()
+//    }
+//}
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var delegate: TweetsViewControllerDelegate?
+   // var delegate: TweetsViewControllerDelegate?
     var tweets: [Tweet]!
     var refreshControl: UIRefreshControl!
     @IBOutlet weak var tableView: UITableView!

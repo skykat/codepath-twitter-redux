@@ -12,7 +12,7 @@ class MenuCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     
-    func configureMenuItem(item: MenuItem) {
+    func populateMenu(item: Menu) {
         titleLabel.text = item.title
     }
 
@@ -27,5 +27,6 @@ class MenuCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 
 }
