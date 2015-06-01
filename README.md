@@ -25,3 +25,6 @@ Time spent: `<12>`
 - [x] Profile page - Contains a section with the users basic stats: # tweets, # following, # followers
 - [x] Home Timeline - tapping on a user image should bring up that user's profile page
 
+### Walkthrough
+![Video Walkthrough](https://github.com/skykat/codepath-twitter-redux/blob/master/wk4_twitter_redux.gif)
+
