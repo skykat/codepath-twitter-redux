@@ -9,11 +9,12 @@
 import UIKit
 
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TweetCellDelegate {
    // var delegate: TweetsViewControllerDelegate?
     var tweets: [Tweet]!
     var refreshControl: UIRefreshControl!
     @IBOutlet weak var tableView: UITableView!
+
     
     
     override func viewDidLoad() {
@@ -49,6 +50,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    
+    func tweetSelected(tweet: Tweet) {
+        // This is not getting called for some reason
+        println("tweet: \(tweet.text)")
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         cell.tweet = self.tweets[indexPath.row]
@@ -69,6 +76,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
   
+  
 
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -78,6 +86,21 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         if segue.identifier == "com.codepath.tweetmodal"{
             println("com.codepath.tweetmodal")
 
+        }else if segue.identifier == "com.codepath.profileimage"{
+            let userProfileViewController = segue.destinationViewController as? UserProfileViewController
+    
+            println("preparing for next page")
+            
+//            if segue.identifier == "com.codepath.profileimage" {
+//                if let destination = segue.destinationViewController as? UserProfileViewController {
+//                    if let index = tableView.indexPathForSelectedRow()?.row {
+//                        destination.tweet = tweets[index]
+//                                    println("index: \(index)")
+//                    }
+//                }
+//            }
+
+            
         }else{
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)!
@@ -89,6 +112,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 
     
     }
+
     
     @IBAction func onCancel(segue:UIStoryboardSegue) {
         
@@ -97,7 +121,15 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func onTweet(segue:UIStoryboardSegue) {
         
     }
-    
  
+//    extension TweetDetailsViewController: TweetCellDelegate {
+//        func tweetSelected(tweet: Tweet) {
+////            let vc = item.viewController()
+////            vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .Plain, target: self, action: "toggleLeftPanel")
+////            self.centerNavigationController.viewControllers = [vc]
+////            self.collapseSidePanels()
+//        }
+//    }
 
+    
 }

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TweetCellDelegate {
+    func tweetSelected(tweet: Tweet)
+}
+
 class TweetCell: UITableViewCell {
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -20,6 +24,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     
     @IBOutlet weak var retweetImageView: UIImageView!
+
+    var delegate: TweetCellDelegate?
     
     var tweetId: NSNumber?
     var tweet: Tweet! {
@@ -36,6 +42,7 @@ class TweetCell: UITableViewCell {
             }else{
                 retweetImageView.hidden = false
             }
+            
             
         }
     }

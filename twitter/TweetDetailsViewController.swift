@@ -21,6 +21,8 @@ class TweetDetailsViewController: UIViewController {
     @IBOutlet weak var favoriteCountLabel: UILabel!
     @IBOutlet weak var retweetCountLabel: UILabel!
 
+    @IBOutlet weak var profileImageButton: UIButton!
+    
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var retweetButton: UIButton!
     var tweetId: NSNumber?
@@ -34,6 +36,7 @@ class TweetDetailsViewController: UIViewController {
         tweetDetails.text = tweet.text
         timeLabel.text = tweet?.createdAtString
         profileImageView.setImageWithURL(tweet.user?.profileImageUrl)
+        profileImageButton.setImageForState(.Normal, withURL: tweet.user?.profileImageUrl)
         retweetedUsernameLabel.text = tweet.retweeted
         if retweetedUsernameLabel.text == nil
         {
@@ -47,21 +50,28 @@ class TweetDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func onTapProfileImage(sender: AnyObject) {
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        var userProfileViewController = segue.destinationViewController as? UserProfileViewController
+        userProfileViewController!.tweet = tweet
+
     }
-    */
+
     @IBAction func onReply(sender: AnyObject) {
     }
 

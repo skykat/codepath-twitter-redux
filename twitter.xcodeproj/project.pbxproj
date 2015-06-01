@@ -28,6 +28,7 @@
 		9C97B2E91B1B996D0051A055 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C97B2E81B1B996D0051A055 /* Menu.swift */; };
 		9C97B2EB1B1BA9900051A055 /* MentionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C97B2EA1B1BA9900051A055 /* MentionsCell.swift */; };
 		9C97B2ED1B1BBFB50051A055 /* Mention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C97B2EC1B1BBFB50051A055 /* Mention.swift */; };
+		9C97B2EF1B1BE5A80051A055 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C97B2EE1B1BE5A80051A055 /* UserProfileViewController.swift */; };
 		9CF26D091B0CEEBB004A5499 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF26D081B0CEEBB004A5499 /* AppDelegate.swift */; };
 		9CF26D0B1B0CEEBB004A5499 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF26D0A1B0CEEBB004A5499 /* ViewController.swift */; };
 		9CF26D0E1B0CEEBB004A5499 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF26D0C1B0CEEBB004A5499 /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 		9C97B2E81B1B996D0051A055 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		9C97B2EA1B1BA9900051A055 /* MentionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsCell.swift; sourceTree = "<group>"; };
 		9C97B2EC1B1BBFB50051A055 /* Mention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mention.swift; sourceTree = "<group>"; };
+		9C97B2EE1B1BE5A80051A055 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		9CF26D031B0CEEBB004A5499 /* twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF26D071B0CEEBB004A5499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CF26D081B0CEEBB004A5499 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				9C1F38B31B1A473000561611 /* MenuPanelViewController.swift */,
 				9C97B2E41B1B93630051A055 /* AccountViewController.swift */,
 				9C97B2E61B1B94540051A055 /* TwitterMentionsViewController.swift */,
+				9C97B2EE1B1BE5A80051A055 /* UserProfileViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				9C7D00091B12993100F293FB /* TweetCell.swift in Sources */,
 				9C7D000B1B12E5AB00F293FB /* TweetDetailsViewController.swift in Sources */,
 				9C7DFFFE1B10FB3F00F293FB /* Tweet.swift in Sources */,
+				9C97B2EF1B1BE5A80051A055 /* UserProfileViewController.swift in Sources */,
 				9C97B2ED1B1BBFB50051A055 /* Mention.swift in Sources */,
 				9C7D00001B113F5500F293FB /* TweetsViewController.swift in Sources */,
 				9CF26D0B1B0CEEBB004A5499 /* ViewController.swift in Sources */,
