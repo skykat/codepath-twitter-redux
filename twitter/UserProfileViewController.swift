@@ -26,13 +26,14 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("tweet: \(tweet!.text)");
+        println("tweet: \(tweet!.text!)");
+        let followers = tweet!.user!.numberFollowing!
         nameLabel.text = tweet?.user?.name
         userNameLabel.text = tweet?.user?.screenname
         taglineLabel.text = tweet?.user?.tagline
         profileImageView.setImageWithURL(tweet?.user?.profileImageUrl)
         bannerImageView.setImageWithURL(tweet?.user?.profileBannerUrl)
-        followingLabel.text = "following \(tweet?.user?.numberFollowing!)"
+        followingLabel.text = "following \(followers)"
 //        followersLabel.text = "followers \(tweet?.user?.numberOfFollowers!)"
 //        tweetsLabel.text = "tweets \(tweet?.user?.numberOfTweets!)"
         // Do any additional setup after loading the view.

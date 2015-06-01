@@ -16,7 +16,6 @@ class TweetDetailsViewController: UIViewController {
     @IBOutlet weak var tweetDetails: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var retweetImageView: UIImageView!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     @IBOutlet weak var retweetCountLabel: UILabel!
@@ -35,7 +34,6 @@ class TweetDetailsViewController: UIViewController {
         usernameLabel.text = tweet.user?.screenname
         tweetDetails.text = tweet.text
         timeLabel.text = tweet?.createdAtString
-        profileImageView.setImageWithURL(tweet.user?.profileImageUrl)
         profileImageButton.setImageForState(.Normal, withURL: tweet.user?.profileImageUrl)
         retweetedUsernameLabel.text = tweet.retweeted
         if retweetedUsernameLabel.text == nil
