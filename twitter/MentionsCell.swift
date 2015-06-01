@@ -10,6 +10,20 @@ import UIKit
 
 class MentionsCell: UITableViewCell {
     @IBOutlet weak var mentionsLabel: UILabel!
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    var mention: Mention! {
+        didSet{
+            mentionsLabel.text = mention.text
+            userNameLabel.text = mention.userName
+            //userNameLabel.text = "@\(tweet.user?.screenname!)"
+
+            
+        }
+    }
+
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -41,20 +41,22 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         })
     }
     
-    func mentionsTimelineWithParams(params: NSDictionary?, completion:(tweets: [Tweet]?, error: NSError?) ->()){
+    func mentionsTimelineWithParams(params: NSDictionary?, completion:(mentions: [Mention]?, error: NSError?) ->()){
         
         GET("1.1/statuses/mentions_timeline.json", parameters: params, success: {(operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-            //   println("home timeline: \(response)")
-            var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-            completion(tweets: tweets, error: nil)
-            
-            for tweet in tweets{
-                println("text: \(tweet.text), created: \(tweet.createdAt), username: \(tweet.user?.screenname)")
+               println("mentions timeline: \(response)")
+            //var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            var mentions = Mention.mentionsWithArray(response as! [NSDictionary])
+            completion(mentions: mentions, error: nil)
+
+            for mention in mentions{
+                println("text: \(mention.text), username: \(mention.userName)")
+
             }
             
             }, failure: {(operation:AFHTTPRequestOperation!, error: NSError!) -> Void in
                 println("failed getting home timeline \(error)")
-                completion(tweets: nil, error: error)
+                completion(mentions: nil, error: error)
                 
         })
     }

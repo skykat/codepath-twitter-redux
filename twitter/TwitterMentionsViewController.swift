@@ -8,14 +8,21 @@
 
 import UIKit
 
-class TwitterMentionsViewController: UIViewController {
+class TwitterMentionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate { 
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var mentions: [Mention]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        tableView.delegate = self
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
-        TwitterClient.sharedInstance.mentionsTimelineWithParams(nil, completion: {(tweets, error) -> () in
+        TwitterClient.sharedInstance.mentionsTimelineWithParams(nil, completion: {(mentions, error) -> () in
+            self.mentions = mentions
+            self.tableView.reloadData()
             //self.tweets = tweets
             //self.tableView.reloadData()
             // tweet.favorite will do a post
@@ -26,6 +33,21 @@ class TwitterMentionsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if mentions != nil{
+            return mentions!.count
+        }else{
+            return 0
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("MentionsCell", forIndexPath: indexPath) as! MentionsCell
+        cell.mention = self.mentions[indexPath.row]
+        return cell
+    }
+
     
 
     /*
