@@ -90,10 +90,10 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     
     func composeTweetWithParams(params: NSDictionary?, completion:(tweets: [Tweet]?, error: NSError?) ->()){
         println("params: \(params!)")
-        let value = params!["id"] as? NSNumber
+        let value = params!["status"] as? String
         println("value: \(value!)")
         POST("1.1/statuses/update.json", parameters: params!, success: {(operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-            println("finished favoriting?")
+            println("finished composing?")
             
             }, failure: {(operation:AFHTTPRequestOperation!, error: NSError!) -> Void in
                 println("failed favoriting \(error)")

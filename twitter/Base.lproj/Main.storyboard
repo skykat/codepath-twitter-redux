@@ -534,11 +534,12 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Tweet" id="6EK-cn-MfR">
                             <connections>
-                                <segue destination="XCO-JU-YGS" kind="unwind" unwindAction="onTweet:" id="kcP-hQ-p4z"/>
+                                <action selector="onTweet:" destination="7Xg-pV-t7j" id="E3o-f0-45b"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="composeTextView" destination="TPd-cl-0eL" id="2GG-tv-b5h"/>
                         <outlet property="nameLabel" destination="1d7-5c-dDw" id="aRL-5E-9c4"/>
                         <outlet property="profileImageView" destination="fCN-1B-3pu" id="lba-5Q-hvi"/>
                         <outlet property="tweetTextView" destination="TPd-cl-0eL" id="Skv-M4-vt8"/>
@@ -604,24 +605,26 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SKb-n0-Fny">
                                         <rect key="frame" x="0.0" y="8" width="320" height="126"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mzh-vx-Dm5">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mzh-vx-Dm5">
                                         <rect key="frame" x="23" y="99" width="82" height="87"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="mzh-vx-Dm5" firstAttribute="top" secondItem="8Oc-I4-J8i" secondAttribute="top" constant="99" id="3yC-3Y-UJp"/>
                                     <constraint firstAttribute="trailing" secondItem="SKb-n0-Fny" secondAttribute="trailing" id="5Af-dc-PyE"/>
+                                    <constraint firstItem="mzh-vx-Dm5" firstAttribute="leading" secondItem="8Oc-I4-J8i" secondAttribute="leading" constant="23" id="Egk-36-mLg"/>
                                     <constraint firstItem="SKb-n0-Fny" firstAttribute="leading" secondItem="8Oc-I4-J8i" secondAttribute="leading" id="FqT-7g-NEN"/>
                                     <constraint firstItem="SKb-n0-Fny" firstAttribute="top" secondItem="8Oc-I4-J8i" secondAttribute="top" constant="8" id="awX-ev-07e"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSA-hG-vyG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSA-hG-vyG">
                                 <rect key="frame" x="25" y="200" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBh-Pl-BhA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBh-Pl-BhA">
                                 <rect key="frame" x="25" y="229" width="265" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -657,7 +660,10 @@
                             <constraint firstItem="8Oc-I4-J8i" firstAttribute="top" secondItem="Pg1-xZ-MQh" secondAttribute="top" id="0A8-0t-qgh"/>
                             <constraint firstAttribute="trailing" secondItem="8Oc-I4-J8i" secondAttribute="trailing" id="Gqr-oa-8uU"/>
                             <constraint firstItem="8Oc-I4-J8i" firstAttribute="leading" secondItem="Pg1-xZ-MQh" secondAttribute="leading" id="dZf-39-Pdw"/>
+                            <constraint firstItem="TSA-hG-vyG" firstAttribute="top" secondItem="Kin-AJ-ph7" secondAttribute="bottom" constant="136" id="hAq-Df-IX6"/>
+                            <constraint firstItem="TSA-hG-vyG" firstAttribute="leading" secondItem="Pg1-xZ-MQh" secondAttribute="leading" constant="25" id="nmN-1q-QHY"/>
                             <constraint firstItem="Oqk-S0-XOy" firstAttribute="top" secondItem="8Oc-I4-J8i" secondAttribute="bottom" id="o8D-s9-Ws3"/>
+                            <constraint firstItem="EBh-Pl-BhA" firstAttribute="leading" secondItem="Pg1-xZ-MQh" secondAttribute="leading" constant="25" id="xIh-e5-va2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XDF-wi-T0f"/>

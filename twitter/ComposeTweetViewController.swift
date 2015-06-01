@@ -14,6 +14,7 @@ class ComposeTweetViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var composeTextView: UITextView!
      var tweet: Tweet!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,17 @@ class ComposeTweetViewController: UIViewController {
     }
     
 
- 
+    @IBAction func onTweet(sender: UIBarButtonItem) {
+        println("onTweet")
+        var tweetIdDictionary = [String: String]()
+        var tweetText: String = tweetTextView.text!
+        
+        tweetIdDictionary["status"] = tweetText
+        TwitterClient.sharedInstance.composeTweetWithParams(tweetIdDictionary, completion: {(tweets, error) -> () in
+            println("Finished favoriting...")
+            
+        })
+    }
    
     /*
     // MARK: - Navigation
